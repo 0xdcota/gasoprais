@@ -1,3 +1,20 @@
 # Gasoprais Project
 # Oct 13, 2017
 # Pseudocode
+Actualizacion de precios 
+         6:30 am
+         2:30 am
+         10:30 am
+a=format(Sys.Date(), format="%Y")
+b=format(Sys.Date(), format="%m") 
+c=format(Sys.Date(), format="%d")
+NOMBRE = paste(a,b,c,"-preciosCRE.xml", sep='')
+fileUrl = "https://publicacionexterna.azurewebsites.net/publicaciones/prices" 
+download.file(fileUrl, destfile = paste("C:/Archivos/PRECIOSCRE/",NOMBRE,sep=''))
+doc = xmlTreeParse(file = paste("C:/Archivos/PRECIOSCRE/",NOMBRE,sep=''), useInternalNodes = TRUE)
+listadoCRE <- xmlRoot(doc)
+
+#tomar las distancias del usuario que esta revisando los precios
+Indicarle mas cercanas
+Permitir al usuario insertar precios, corregir, indicar descuentos o precios con diferentes pagos de efectivo
+Permitir al usuario ingresar fecha, km, hora, volumen, consumo, precio gasto de gasolina
